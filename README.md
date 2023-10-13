@@ -44,6 +44,24 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Poppins, a custom Google Font.
 
+## How it works
+
+I use [this terminologies api](https://api.gouv.fr/les-api/api-terminologies-sante) to request some information about medical terminologies and differents medical concepts
+
+### Endpoints used
+
+URL base is : https://smt.esante.gouv.fr
+
+`GET: /wp-json/ans/terminologies/zip` to download terminologies zip file
+
+`GET: /api/terminologies/list` to get a terminologies list
+
+`GET: /api/terminologies/search` to search terminologies
+
+`GET: /api/terminologies/home` to get some default terminologies
+
+`POST: /api/concepts/search` to search concepts
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
