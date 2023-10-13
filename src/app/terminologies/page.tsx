@@ -26,6 +26,7 @@ export default function page() {
       });
   }, []);
 
+  // Perform a terminology search when the input changes (debounced to avoid excessive requests)
   useEffect(() => {
     if (value != "") {
       const timer = setTimeout(() => {
@@ -40,6 +41,8 @@ export default function page() {
       return () => clearTimeout(timer);
     }
   }, [value]);
+
+  // Perform a terminology search when the page or size changes
   useEffect(() => {
     if (page > nbPage) {
       setPage(nbPage);
@@ -58,11 +61,13 @@ export default function page() {
     }
   }, [size, page]);
 
+  // Update the total number of pages based on the search results
   useEffect(() => {
     if (data) {
       setNbPage(Math.ceil(data.numberOfTerminologies / size));
     }
   }, [data]);
+
   return (
     <div className="flex items-center gap-10 flex-col mt-10">
       <Link className="w-full items-center flex gap-4" href={"/"}>

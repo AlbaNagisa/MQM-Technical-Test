@@ -19,6 +19,7 @@ interface Props {
     label: string;
   }>;
 }
+//modular select component
 export default function SelectC({
   onChange,
   selectedOption,

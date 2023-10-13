@@ -4,6 +4,7 @@ interface Props {
   item: Concept;
   id: number;
 }
+//card for each concept
 export default function ConceptsCard({ item, id }: Props) {
   return (
     <div

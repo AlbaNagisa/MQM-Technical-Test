@@ -6,6 +6,7 @@ import { GoDownload } from "react-icons/go";
 interface Props {
   data: Terminology;
 }
+//card for each terminology
 export default function TerminologyCard({ data }: Props) {
   return (
     <div className="flex my-10 flex-col text-lg w-[50%] bg-[#1f115e] gap-4 p-5 rounded-lg h-fit">
@@ -13,6 +14,7 @@ export default function TerminologyCard({ data }: Props) {
         <div className="flex flex-col  w-[33%]">
           <Link
             className="hover:underline"
+            //replace the domain name with the correct one
             href={
               data.uri
                 ? data.uri.replace(

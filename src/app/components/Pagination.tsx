@@ -9,6 +9,7 @@ interface Props {
   nbPage: number;
   data: any;
 }
+//pagination system
 export default function Pagination({ page, setPage, nbPage, data }: Props) {
   return (
     <div className="mt-10 text-[0.8em] flex flex-row w-[30%] justify-between">

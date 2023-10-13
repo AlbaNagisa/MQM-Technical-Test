@@ -6,6 +6,8 @@ interface Props {
   onChange: (value: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
 }
+
+//input for search bar
 export default function Input({ onChange, value, placeholder }: Props) {
   return (
     <div className="flex w-[50%] justify-center">

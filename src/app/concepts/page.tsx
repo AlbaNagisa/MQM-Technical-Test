@@ -4,11 +4,10 @@ import React, { useEffect, useState } from "react";
 import { conceptSearchRequest, terminologiesList } from "../utils/api";
 
 import ConceptsCard from "../components/ConceptsCard";
-import Select, { MultiValue } from "react-select";
+import { MultiValue } from "react-select";
 import Input from "../components/Input";
 import Pagination from "../components/Pagination";
 import SelectPerPage from "../components/SelectPerPage";
-import { selectStyle } from "../utils/utils";
 import SelectC from "../components/SelectC";
 import Link from "next/link";
 import { AiOutlineArrowLeft } from "react-icons/ai";
@@ -29,6 +28,7 @@ export default function Page() {
 
   const [data, setData] = useState<ConceptsData>();
 
+  // Fetch the list of terminologies when the component mounts
   useEffect(() => {
     terminologiesList()
       .then((res: any) => {
@@ -48,12 +48,11 @@ export default function Page() {
       });
   }, []);
 
+  // Perform a concept search when the input changes (debounced to avoid excessive requests)
   useEffect(() => {
     if (input != "") {
       setError("");
-      //je fais cela afin de ne pas requeter lapi a chaque fois que lutilisateur tape une lettre
       const timer = setTimeout(() => {
-        //concept
         conceptSearchRequest(
           input,
           nbPerPage,
@@ -73,9 +72,11 @@ export default function Page() {
     }
   }, [input]);
 
+  // Perform a concept search when page, items per page, language, or terminology options change
   useEffect(() => {
     if (input != "") {
       setError("");
+
       try {
         if (page > nbPage) {
           setPage(nbPage);
@@ -102,6 +103,7 @@ export default function Page() {
     }
   }, [page, nbPerPage, lang, selectedOption]);
 
+  // Update the total number of pages based on the search results
   useEffect(() => {
     if (data?.numberOfConcepts != undefined)
       setNbPage(Math.ceil(data?.numberOfConcepts / nbPerPage));

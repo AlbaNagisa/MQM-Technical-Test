@@ -7,6 +7,7 @@ interface Props {
   size: number;
 }
 
+//select for number of results per page
 export default function SelectPerPage({ setSize, setPage, size }: Props) {
   return (
     <SelectC
