@@ -57,7 +57,7 @@ export default function Page() {
           input,
           nbPerPage,
           1,
-          lang,
+          lang == "Toutes les langues" ? "" : lang.slice(0, 2).toLowerCase(),
           selectedOption?.map((v) => v.value)
         )
           .then((res: any) => {
@@ -88,7 +88,7 @@ export default function Page() {
           input,
           nbPerPage,
           page <= 0 ? 1 : page,
-          lang,
+          lang == "Toutes les langues" ? "" : lang.slice(0, 2).toLowerCase(),
           selectedOption?.map((v) => v.value)
         )
           .then((res: any) => {

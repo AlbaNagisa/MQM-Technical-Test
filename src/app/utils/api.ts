@@ -6,9 +6,6 @@ function request(url: string, method = "GET") {
     try {
       fetch(url, {
         method,
-        headers: {
-          accept: "*/*",
-        },
       })
         .then((response) => response.text()) //je sais que .json existe mais j'ai prefere utiliser .text pour pouvoir traiter les erreurs qui ne sont pas renvoye sous forme de json
         .then((data: string) => {
